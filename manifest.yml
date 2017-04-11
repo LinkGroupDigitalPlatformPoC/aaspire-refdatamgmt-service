@@ -2,7 +2,7 @@ applications:
 - disk_quota: 1024M
   host: member-refdata-services
   name: member-refdata-services
-  path: ./aaspire-refdata-service-0.0.1-SNAPSHOT.war
+  path: ./aaspire-refdatamgmt-service-0.0.1-SNAPSHOT.war
   instances: 1
   memory: 512M
   buildpack: liberty-for-java
