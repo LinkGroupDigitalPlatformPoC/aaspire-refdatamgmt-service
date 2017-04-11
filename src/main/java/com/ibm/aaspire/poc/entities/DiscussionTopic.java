@@ -2,8 +2,11 @@ package com.ibm.aaspire.poc.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "DISCUSSIONTOPIC")
@@ -12,13 +15,14 @@ public class DiscussionTopic {
 	public DiscussionTopic() {
 	}
 
-	public DiscussionTopic(String id, String description, String longDescription) {
-		this.id = id;
+	public DiscussionTopic(String description, String longDescription) {
 		this.description = description;
 		this.longDescription = longDescription;
 	}
 
 	@Id
+	@GeneratedValue(generator="system-uuid")
+	@GenericGenerator(name="system-uuid", strategy = "uuid")
 	private String id;
 	
 	private String description;

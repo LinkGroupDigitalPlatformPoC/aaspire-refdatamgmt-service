@@ -16,4 +16,12 @@ public class DiscussionTopicService {
 	public Iterable<DiscussionTopic> getAllDiscussionTopics() {
 		return repo.findAll(new Sort(Sort.Direction.ASC, "description"));
 	}
+	
+	public DiscussionTopic save(DiscussionTopic topic) {
+		return repo.save(topic);
+	}
+	
+	public DiscussionTopic findOne(String id) {
+		return repo.findOne(id);
+	}
 }

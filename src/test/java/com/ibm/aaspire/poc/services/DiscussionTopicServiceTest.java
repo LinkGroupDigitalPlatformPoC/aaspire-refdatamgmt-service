@@ -25,13 +25,17 @@ public class DiscussionTopicServiceTest {
 
 	@Autowired
 	private DiscussionTopicRepository repo;
+	
+	private DiscussionTopic topic1;	
+	private DiscussionTopic topic2;	
+	private DiscussionTopic topic3;
 
 	@Before
 	public void populateDb() {
 		repo.deleteAll();
-		repo.save(new DiscussionTopic("uuid1", "Middle", "doesn't matter"));
-		repo.save(new DiscussionTopic("uuid2", "AStart", "doesn't matter"));
-		repo.save(new DiscussionTopic("uuid3", "ZEnd", "doesn't matter"));	
+		topic1 = repo.save(new DiscussionTopic("Middle", "doesn't matter"));
+		topic2 = repo.save(new DiscussionTopic("AStart", "doesn't matter"));
+		topic3 = repo.save(new DiscussionTopic("ZEnd", "doesn't matter"));	
 	}
 	
 	@Test
@@ -39,8 +43,8 @@ public class DiscussionTopicServiceTest {
 		List<DiscussionTopic> loadedTopics = newArrayList(service.getAllDiscussionTopics());
 		
 		assertEquals(3, loadedTopics.size());
-		assertEquals("uuid2", loadedTopics.get(0).getId());
-		assertEquals("uuid1", loadedTopics.get(1).getId());
-		assertEquals("uuid3", loadedTopics.get(2).getId());
+		assertEquals(topic2.getId(), loadedTopics.get(0).getId());
+		assertEquals(topic1.getId(), loadedTopics.get(1).getId());
+		assertEquals(topic3.getId(), loadedTopics.get(2).getId());
 	}
 }
