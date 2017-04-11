@@ -20,7 +20,6 @@ import org.springframework.context.annotation.Profile;
 @Profile({ "dev", "test", "prod" })
 public class AppConfig {
 
-	@Value("${postgresURL}")
 	String dbUrl;
 
 	@Value("${jdbc-protocol}")
