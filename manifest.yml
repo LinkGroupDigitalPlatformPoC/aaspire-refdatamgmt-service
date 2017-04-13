@@ -1,6 +1,5 @@
 applications:
 - disk_quota: 1024M
-  host: member-refdata-services
   name: member-refdata-services
   path: ./aaspire-refdatamgmt-service-0.0.1-SNAPSHOT.war
   instances: 1
